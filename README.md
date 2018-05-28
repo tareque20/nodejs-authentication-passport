@@ -1,5 +1,5 @@
 # nodejs express mongodb
-RestFull api example with MongoDB, Joi validation, Handlebar Template Engine
+Login app example with MongoDB, Joi validation, Handlebar Template Engine, Passport
 
 # Run Project:
 ```sh
@@ -45,12 +45,9 @@ $ mongo --host 127.0.0.1:27017
 ```
 ```sh
 $ show dbs
-$ use nodeapp
-$ db.createCollection('books')
-$ db.createCollection('genres')
-$ db.genres.insert({name: 'Test name 1'})
-$ db.genres.find().pretty()
-$ db.books.insert({title : "Test title 1", genres : "Suspense", description : "This is for test description 1", author : "auther 1"});
+$ use loginapp
+$ db.createCollection('users')
+$ db.books.insert({name : "User 1", email : "user1@gmail.com", username : "user1", password : "123"});
 $ db.books.find().pretty()
 ```
 More info: https://docs.mongodb.com/manual/crud/
@@ -61,22 +58,11 @@ $ sudo service mongod start
 ```
 
 # API Routes:
-Books:
-```sh
-get: /api/books
-get: /api/books/1
-post: /api/books
-put: /api/books/1
-delete: /api/books/1
-```
-
-genres:
 
 ```sh
-get: /api/genres
-get: /api/genres/1
-post: /api/genres
-put: /api/genres/1
-delete: /api/genres/1
+get: /
+post: /user/login
+post: /user/register
+get: /user/logout
 ```
 ### Use postman to test api
