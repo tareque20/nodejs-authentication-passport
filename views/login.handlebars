@@ -1,0 +1,18 @@
+<form class="form-signin" action="/users/login" method="post">
+    {{#if success_msg}}
+        <div class="alert alert-success">{{success_msg}}</div>
+    {{/if}}
+    {{#if error_msg}}
+        <div class="alert alert-danger">{{error_msg}}</div>
+    {{/if}}
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+</form>

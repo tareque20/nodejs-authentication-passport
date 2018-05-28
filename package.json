@@ -1,0 +1,35 @@
+{
+  "name": "nodejs-express-mongodb",
+  "version": "1.0.0",
+  "description": "Simple node application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "*",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "joi": "^13.3.0",
+    "mongodb": "^3.1.0-beta4",
+    "mongoose": "*",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tareque20/nodejs-express-mongodb.git"
+  },
+  "author": "Tasfin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tareque20/nodejs-express-mongodb/issues"
+  },
+  "homepage": "https://github.com/tareque20/nodejs-express-mongodb#readme"
+}
