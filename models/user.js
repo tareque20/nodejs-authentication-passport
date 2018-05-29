@@ -13,7 +13,8 @@ const userSchema = mongoose.Schema({
     },*/
     username: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     password: {
         type: String,
@@ -27,43 +28,27 @@ const userSchema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', userSchema);
 
-// Get User
-module.exports.getUsers = function (callback, limit) {
-    User.find(callback).limit(limit);
-}
-
-// Get User
-module.exports.getUserById = function (id, callback) {
-    User.findById(id, callback);
-}
-
-// Add User
-module.exports.createUser = function (newUser, callback) {
+module.exports.createUser = function(newUser, callback){
     bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.passport, salt, function(err, hash) {
-            // Store hash in your password DB.
-            newUser.passport = hash;
-            User.create(newUser, callback);
+        bcrypt.hash(newUser.password, salt, function(err, hash) {
+            newUser.password = hash;
+            newUser.save(callback);
         });
     });
 }
 
-// getUserByUsername
-module.exports.getUserByUsername = function (username, callback) {
-   var query = {username: username};
-
-   User.findOne(query, callback);
+module.exports.getUserByUsername = function(username, callback){
+    var query = {username: username};
+    User.findOne(query, callback);
 }
-// comparePassword
-module.exports.comparePassword = function (userPassword, hash, callback) {
-    // Load hash from your password DB.
-    bcrypt.compare(userPassword, hash, function(error, isMatch) {
-        // res === true
-        if (error) {
-            throw error;
-        }
 
+module.exports.getUserById = function(id, callback){
+    User.findById(id, callback);
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+        if(err) throw err;
         callback(null, isMatch);
-
     });
 }

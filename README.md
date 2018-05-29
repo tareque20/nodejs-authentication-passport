@@ -1,4 +1,4 @@
-# nodejs express mongodb
+# nodejs express mongodb Passport
 Login app example with MongoDB, Joi validation, Handlebar Template Engine, Passport
 
 # Run Project:
