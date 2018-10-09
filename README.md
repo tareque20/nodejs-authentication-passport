@@ -9,6 +9,11 @@ $ npm install
 ```sh
 $ sudo npm install -g nodemon
 ```
+if Getting error : [nodemon] Internal watch failed: watch ENOSPC
+```sh
+sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p
+```
+
 ```sh
 $ nodemon
 ```
