@@ -13,7 +13,7 @@ var path = require('path');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect('mongodb://localhost/loginapp', { useNewUrlParser: true });
 var db = mongoose.connection;
 
 var routers = require('./routes/index');
